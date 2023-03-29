@@ -1,0 +1,47 @@
+<html>
+<body>
+<button onClick="send_instructions()">Click</button>
+<script>
+    function send_instructions() {
+        fetch("http://192.168.137.237/execute", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({commands: [
+                {
+                    type: "MOVE",
+                    body: {
+                        type: "LEFT",
+                        magnitude: 50,
+                    },
+                },
+                {
+                    type: "MOVE",
+                    body: {
+                        type: "UP",
+                        magnitude: 50,
+                    },
+                },
+                {
+                    type: "MOVE",
+                    body: {
+                        type: "RIGHT",
+                        magnitude: 50,
+                    },
+                },
+                {
+                    type: "MOVE",
+                    body: {
+                        type: "DOWN",
+                        magnitude: 50,
+                    },
+                },
+            ]}),
+        })
+    }
+</script>
+</body>
+</html>
+
